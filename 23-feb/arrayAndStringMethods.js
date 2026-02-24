@@ -219,10 +219,6 @@
 // let strObj = new String("sam");
 // console.log(strObj.toString());
 
-
-
-
-
 //Object methods in js
 
 // const person = {
@@ -256,9 +252,6 @@
 // console.log(Object.getOwnPropertyDescriptor(student,"emailId"));
 // console.log(Object.getOwnPropertyDescriptors(student));
 
-
-
-
 // const sales = [
 //   { item: "Laptop", price: 1200, quantity: 1 },
 //   { item: "Mouse", price: 25, quantity: 2 },
@@ -274,19 +267,55 @@
 // },{})
 // console.log(result)
 
-const people = [
-  { name: "Alice", age: 25 },
-  { name: "Bob", age: 12 },
-  { name: "Charlie", age: 30 },
-  { name: "David", age: 15 }
-];
+// const people = [
+//   { name: "Alice", age: 25 },
+//   { name: "Bob", age: 12 },
+//   { name: "Charlie", age: 30 },
+//   { name: "David", age: 15 }
+// ];
 
-const result1=people.reduce((acc,value)=>{
-    if(!acc.adults)acc.adults=[];
-    if(!acc.teenagers)acc.teenagers=[];
+// const result1=people.reduce((acc,value)=>{
+//     if(!acc.adults)acc.adults=[];
+//     if(!acc.teenagers)acc.teenagers=[];
 
-    if(value.age>18 ) acc.adults.push(value.name)
-        else acc.teenagers.push(value.name)
-    return acc;
-},{})
-console.log(result1)
+//     if(value.age>18 ) acc.adults.push(value.name)
+//         else acc.teenagers.push(value.name)
+//     return acc;
+// },{})
+// console.log(result1)
+
+const sym = Symbol("id");
+const person = {
+  [sym]: 123,
+  name: "ram",
+  age: 22,
+};
+Object.defineProperty(person, "age", {
+  enumerable: false,
+});
+
+// const newPerson = Object.create(person);
+// console.log(Object.getOwnPropertyNames(person));
+// console.log(Object.getOwnPropertySymbols(person));
+// console.log(Object.keys(person));
+// console.log(Object.values(person));
+// console.log(Object.entries(person));
+// console.log(Object.getOwnPropertyDescriptor(person,"age"));
+// console.log(Object.getOwnPropertyDescriptors(person));
+// console.log(Object.getPrototypeOf(newPerson));
+
+
+
+// const student = {};
+
+// Object.defineProperty(student, "age", {
+//   get() {
+//     return this._age;
+//   },
+//   set(value) {
+//     if (value < 0) throw Error("Invalid age");
+//     this._age = value;
+//   },
+// });
+// student.age=-23;
+// console.log(student);
