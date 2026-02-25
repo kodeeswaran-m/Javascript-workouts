@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="heavyTask()">Start Heavy Task</button>
+    <button onclick="alert('Clicked!')">Click Me</button>
+
+    <script>
+      function heavyTask() {
+        let sum = 0;
+        for (let i = 0; i < 5_000_000_000; i++) {
+          sum += i;
+        }
+        console.log("Done:", sum);
+      }
+    </script>
+  </body>
+</html>
+
+
+<!-- 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="startWorker()">Start Heavy Task</button>
+    <button onclick="alert('Clicked!')">Click Me</button>
+
+    <script>
+      const worker = new Worker("worker.js");
+
+      function startWorker() {
+        worker.postMessage("start");
+      }
+
+      worker.onmessage = function (e) {
+        console.log("Result:", e.data);
+      };
+    </script>
+  </body>
+</html>  -->
